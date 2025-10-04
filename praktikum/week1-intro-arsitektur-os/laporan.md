@@ -1,11 +1,9 @@
 # **Perbedaan Monolithic Kernel, Microkernel dan Layered Architecture**
-
-
-Dari Ketiga artitecture ini memiliki keunggulan dan kekurangan masing-masing, 
+Arsitektur sistem operasi merupakan rancangan internal dari OS menentukan bagaimana komponen-komponen OS berkerja sama mengelolah hardware komputer seperti CPU, memori, I/O, dan menyediakan layanan kepada user 
 
  ## 1. Monolithic kernel 
-kernel yang Keseluruhan komponen OS (managemen proses, memori, I/O, device drivers) Berjalan dalam satu kernel space,
-yang menjadikan kecepatan komunikasi antar komponen menjadi cepat dan efisien, namun monolitthic kernel ini memiliki kekurangan, yaitu karena ukuran yang sangat besar dan kompleks dan jika ada satu device driver bermasalah seluruh kernel dan system bisa crash.
+Monolithic kernel adalah dimana keseluruhan komponen OS (managemen proses, memori, I/O, device drivers) Berjalan dalam satu kernel space,
+yang menjadikan kecepatan komunikasi antar komponen menjadi cepat dan efisien, kelemahannya adalah kompleksitas dan jika ada satu device driver bermasalah seluruh kernel dan system bisa crash.
 
  ### Contoh
 * Linux (termasuk Android).
