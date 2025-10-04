@@ -29,9 +29,14 @@ Struktur system ini dibagi menjadi beberapa lapisan dan setiap lapisan hanya ber
 * Multics.
 * Windows NT (menggunakan arsitektur berlapis dengan komponen hybrid).
 
+
 # **Analisis Tentang Model Kernel Yang Paling Relevan Untuk Sistem Modern** 
-kernel yang paling relevan untuk sistem modern yaitu hybrid kernel yang menggabungkan kernel monolithic kernel dan micro kernel,atau layerd architekture untuk sekarang sistem modern tidak menggunakan satu model murni, melainkan menggabungkan kelebihan dari setiap model 
-### Contoh
-* Windows NT: mengkombinasikan microkernel dan monolicthic
-* MacOS(XNU) : berdasarkan mach, MacOS mengkombinasikan micro kenel, monolithic dan Driver Modular.
-* Linux : Secara teknis monolithic, tapi sudah sangat modular dan mendukung loadable kernel modules (LKM), mirip pendekatan layered
+Model kernel yang paling sesuai untuk sistem operasi modern adalah hybrid kernel, yang menggabungkan karakteristik monolithic dan microkernel. Contoh implementasinya terdapat pada Windows NT dan macOS/iOS. Untuk server dan cloud, Linux dengan kernel monolithic modular mendominasi karena stabilitas dan performa. Sementara pada perangkat mobile dan embedded, microkernel maupun hybrid kernel lebih banyak digunakan karena efisiensi dan keandalannya. Dengan demikian, relevansi model kernel ditentukan oleh konteks penggunaan: performa untuk server, keandalan untuk embedded, dan fleksibilitas untuk desktop.
+
+
+# **Kesimpulan
+
+Dari pembahasan mengenai monolithic kernel, microkernel, dan layered architecture dapat dilihat bahwa setiap model memiliki kelebihan sekaligus keterbatasan. Monolithic kernel unggul dalam hal kecepatan komunikasi internal, tetapi rawan crash jika satu komponen bermasalah. Microkernel menawarkan stabilitas dan keamanan yang lebih baik, meskipun komunikasi antarkomponen cenderung lebih lambat. Sementara itu, layered architecture memberikan struktur modular yang teratur, namun efisiensinya sangat bergantung pada desain antar lapisan.
+
+Dalam perkembangan sistem operasi modern, tidak ada satu pendekatan yang benar-benar sempurna untuk semua kebutuhan. Oleh karena itu, model hybrid kernel muncul sebagai solusi dengan memadukan kecepatan monolithic dan keandalan microkernel. Linux tetap dominan di ranah server karena performanya, sedangkan untuk perangkat mobile dan embedded, sistem berbasis microkernel atau hybrid lebih banyak dipilih. Dengan kata lain, relevansi arsitektur kernel ditentukan oleh kebutuhan spesifik: performa tinggi untuk server, kestabilan untuk embedded, dan fleksibilitas untuk desktop.
+
