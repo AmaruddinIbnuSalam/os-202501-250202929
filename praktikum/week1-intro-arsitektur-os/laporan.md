@@ -34,7 +34,7 @@ Struktur system ini dibagi menjadi beberapa lapisan dan setiap lapisan hanya ber
 Model kernel yang paling sesuai untuk sistem operasi modern adalah hybrid kernel, yang menggabungkan karakteristik monolithic dan microkernel. Contoh implementasinya terdapat pada Windows NT dan macOS/iOS. Untuk server dan cloud, Linux dengan kernel monolithic modular mendominasi karena stabilitas dan performa. Sementara pada perangkat mobile dan embedded, microkernel maupun hybrid kernel lebih banyak digunakan karena efisiensi dan keandalannya. Dengan demikian, relevansi model kernel ditentukan oleh konteks penggunaan: performa untuk server, keandalan untuk embedded, dan fleksibilitas untuk desktop.
 
 
-# **Kesimpulan
+# **Kesimpulan**
 
 Dari pembahasan mengenai monolithic kernel, microkernel, dan layered architecture dapat dilihat bahwa setiap model memiliki kelebihan sekaligus keterbatasan. Monolithic kernel unggul dalam hal kecepatan komunikasi internal, tetapi rawan crash jika satu komponen bermasalah. Microkernel menawarkan stabilitas dan keamanan yang lebih baik, meskipun komunikasi antarkomponen cenderung lebih lambat. Sementara itu, layered architecture memberikan struktur modular yang teratur, namun efisiensinya sangat bergantung pada desain antar lapisan.
 
