@@ -102,7 +102,6 @@ Perintah seperti dmesg mengakses log kernel yang dihasilkan melalui system call,
 Arsitektur OS
 
 Arsitektur sistem operasi ini menggunakan Ubuntu, di mana Linux berjalan sebagai mesin virtual ringan dengan kernel asli di dalam Windows. Sistem ini seperti menggunakan kontainer, di mana kernel Linux mengatur sumber daya dan ruang kerja, sementara proses berjalan terpisah satu sama lain. Hal ini terlihat dari informasi kernel dan modul yang berjalan seperti di sistem Linux asli. Ini menunjukkan contoh arsitektur OS modern yang mendukung virtualisasi, keamanan, dan pemakaian sumber daya yang efisien
----
 
 ## Kesimpulan
  - Praktikum membuktikan bahwa kernel Linux pada Ubuntu berjalan optimal dan mampu mendeteksi serta mengelola Sumber daya hardware (CPU, RAM) secara efisien sesuai peran inti kernel dalam sistem operasi.
