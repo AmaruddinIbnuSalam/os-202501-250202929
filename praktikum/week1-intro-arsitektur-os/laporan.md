@@ -87,6 +87,7 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
+
 - Hasil nya adalah Dengan Virtual machine Ubuntu/WSl kita dapat menggunakan/menjalankan Linux tanpa membuat dual boot, dan hasil Experimen perintah saya berhasil menjalan kan Linux 
 - Hasil terminal tersebut merefleksikan konsep penting dalam teori sistem operasi, yaitu fungsi kernel, system call, dan arsitektur OS modern:
 Fungsi Kernel
