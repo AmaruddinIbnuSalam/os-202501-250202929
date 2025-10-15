@@ -138,9 +138,11 @@ Serta Windows memakai kernel hybrid dengan system call berbeda dan menggunakan a
 ---
 
 ## Refleksi Diri
-Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- yang paling menantang minggu ini
+masih kurang paham tentang arti dari log dari hasil perintah satu sampai 3 soalnya di punya saya hasilnya banyak tulisan close,saya tidak tahu apa itu mengalami kesalahan atau emang seperti itu.
+  
+- Bagaimana cara Anda mengatasinya?
+cara mengatasinya bertanya pada ai dan menganalisa yang saya tau saya.
 
 ---
 
