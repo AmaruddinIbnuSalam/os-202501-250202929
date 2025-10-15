@@ -128,12 +128,12 @@ Serta Windows memakai kernel hybrid dengan system call berbeda dan menggunakan a
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Apa fungsi utama system call dalam sistem operasi?  
+   **Jawaban:**  Sistem call berfungsi sebagai media komunikasi antara kernel dan aplikasi 
+2. Sebutkan 4 kategori system call yang umum digunakan
+   **Jawaban:**  Prosess control,file management,device management, information maintenance, communication
+4. Mengapa system call tidak bisa dipanggil langsung oleh user program?  
+   **Jawaban:**  sistem call tidak dapat di panggil langsung oleh user karena ada yang namanya user mode ysng membatasi aksen ke kernel untuk menjaga ke stabilan dan keamanan sistem operasi
 
 ---
 
