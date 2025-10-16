@@ -93,15 +93,14 @@ Teori dasar yang mendasari percobaan menggunakan strace analisis log kernel dala
 ---
 
 ## Hasil Eksekusi
-- Hasil Screenshot Eksperimen 1
-![ Hasil Screenshot Eksperimen 1](<command strace ls.png>)
-![hasil Screenshot Eksperimen 1 part 2](<command strace ls 2.png>)
-- Hasil Screenshot Eksperimen 2
-![- Hasil Screenshot Eksperimen 2](<command strace -e trace=open,read,write,close cat etcpasswd.png>)
-- Hasil Screenshot Eksperimen 3
-![alt text](<dmesg  tail -n 10.png>)
----
+- Diagram Syscall
+<img width="1919" height="1046" alt="Diagram syscall" src="https://github.com/user-attachments/assets/440e8869-64da-46cf-b9a6-373a8bee025d" />
 
+- Hasil Screenshot Eksperimen 1<img width="1366" height="768" alt="Stracels" src="https://github.com/user-attachments/assets/b81de0e2-25a3-46ee-a9b2-1fa0085d8893" />
+- Hasil Screenshot Eksperimen 2
+<img width="1365" height="768" alt="strace-etraceopenreadwriteclosecatetcpasswd" src="https://github.com/user-attachments/assets/90216b7c-bed5-4dc2-adac-c7f4c94fb602" />
+- Hasil Screenshot Eksperimen 3
+<img width="1366" height="768" alt="dmesgtailn10" src="https://github.com/user-attachments/assets/5b541014-d4b8-46e6-ba03-25510bb19b74" />
 
 ## Analisis
 ### Pentingnya System Call untuk Keamanan OS
