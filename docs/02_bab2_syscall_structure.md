@@ -77,6 +77,7 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
    - Bagaimana OS memastikan transisi user–kernel berjalan aman?  
    - Sebutkan contoh system call yang sering digunakan di Linux.  
 4. Simpan semua hasil di:
+
    ```
    praktikum/week2-syscall-structure/
    ```

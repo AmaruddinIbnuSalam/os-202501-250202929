@@ -1,0 +1,14 @@
+Catat 5–10 system call pertama yang muncul dan jelaskan fungsinya
+
+No.  |  System Call  |  Log                                                                            |  Fungsi Singkat                                           
+-----+---------------+---------------------------------------------------------------------------------+-----------------------------------------------------------
+1    |  execve       |  execve("/usr/bin/ls", ["ls"], 0x7fffedcc26d0 /* 25 vars */) = 0                |  Menjalankan program/usr/bin/lsdengan argumenls           
+2    |  brk          |  brk(NULL) = 0x57820abea000                                                     |  Mengecek batas akhir heap saat ini                       
+3    |  mmap         |  `mmap(NULL, 8192, PROT_READ                                                    |  PROT_WRITE, MAP_PRIVATE                                  
+4    |  access       |  access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)     |  Mengecek apakah file preload loader ditemukan (tidak ada)
+5    |  openat       |  `openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY                                 |  O_CLOEXEC) = 3`                                          
+6    |  fstat        |  `fstat(3, {st_mode=S_IFREG                                                     |  0644, st_size=18191, ...}) = 0`                          
+7    |  mmap         |  mmap(NULL, 18191, PROT_READ, MAP_PRIVATE, 3, 0) = 0x714830b71000               |  Memetakan isi file/etc/ld.so.cacheke memori              
+8    |  close        |  close(3) = 0                                                                   |  Menutup file descriptor 3 setelah selesai digunakan      
+9    |  openat       |  `openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY            |  O_CLOEXEC) = 3`                                          
+10   |  read         |  read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0...", 832) = 832  |  Membaca 832 byte pertama dari pustaka ELFlibselinux.so.1 
