@@ -102,15 +102,52 @@ Teori dasar yang mendasari percobaan menggunakan strace analisis log kernel dala
 ![alt text](<dmesg  tail -n 10.png>)
 ---
 
-## Analisis
-Kernel adalah bagian inti dari sistem operasi yang mengelola komunikasi antara perangkat keras dan perangkat lunak komputer. Ketika sebuah program membuka file, kernel memberikan sebuah nomor identifikasi yang disebut file descriptor (seperti angka 3 dalam contoh) untuk mengakses file tersebut. Kernel kemudian bertugas membaca data dari file dan menempatkannya ke dalam memori agar program bisa menggunakannya. Setelah selesai, kernel menutup file descriptor itu sehingga sumber daya komputer bisa digunakan untuk kebutuhan lain. Proses buka, baca, dan tutup file ini diatur secara rapi oleh kernel untuk menjaga keamanan dan kestabilan sistem.
 
-Berbeda dengan program biasa yang mengeluarkan output untuk pengguna, log kernel menunjukkan aktivitas internal sistem secara teknis, seperti pengelolaan hardware, kondisi driver, dan event sistem yang penting untuk memonitor kesehatan komputer. Log ini merekam semua kejadian penting di level sistem operasi yang berjalan "di balik layar" dan biasanya digunakan oleh administrator atau teknisi untuk memecahkan masalah.
+## Analisis
+### Pentingnya System Call untuk Keamanan OS
+System call sangat penting dalam keamanan OS karena menjadi jembatan antara aplikasi user dan kernel, yang mengelola sumber daya hardware. Melalui system call, OS dapat mengontrol akses dan operasi yang dijalankan program, sehingga mencegah program user langsung mengakses perangkat keras atau memory secara sembarangan, yang bisa berisiko keamanan. OS menggunakan system call untuk menerapkan proteksi, validasi input, dan mengelola hak akses file serta resource lainnya sehingga hanya operasi yang sah yang dijalankan.
+
+### Cara OS Menjamin Transisi User ke Kernel yang Aman
+Saat sebuah system call dipanggil, CPU beralih dari mode user yang terbatas ke mode kernel yang memiliki hak akses penuh, menggunakan mode proteksi CPU. Proses ini melibatkan pengalihan konteks di mana parameter system call disalin, kondisi register disiapkan, dan eksekusi fungsi kernel dilakukan. Setelah selesai, CPU kembali ke mode user dengan aman. Karena itu, kode user tidak bisa menjalankan instruksi kernel secara langsung, menjaga integritas sistem.
+
+### Contoh System Call Umum di Linux
+Beberapa system call dasar di Linux yang sering dipakai adalah:
+- open: membuka file
+- read: membaca isi file
+- write: menulis ke file atau perangkat
+- close: menutup file
+- fork: membuat proses baru
+- execve: menjalankan program baru
+- exit: mengakhiri proses
+
+system call merupakan elemen kunci dalam menjaga keamanan dan kestabilan sistem operasi, karena menyediakan mekanisme terstruktur dan aman untuk mengelola sumber daya serta proses di tingkat kernel, yang esensial untuk mencegah akses ilegal dan menjaga integritas sistem secara keseluruhan.
+
+## Hasil Observasi
+
+### Tabel Observasi System Call (strace)
+| Kategori       | Observasi System Call (`strace`)                                       | Penjelasan                                                                                  |
+|--------------- |----------------------------------------------------------------------- |--------------------------------------------------------------------------------------------|
+| open           | File descriptor (fd=3) digunakan untuk /etc/passwd                     | File /etc/passwd dibuka oleh kernel melalui system call open dan disimpan di fd=3           |
+| read           | read(3, ..., nbyte) = jumlah_baca                                      | Kernel membaca isi file per blok byte (contoh 832, 2996, dst) secara bertahap              |
+| write          | write(1, "isi...") ke stdout                                           | Proses cat menulis hasil baca ke layar melalui system call write                            |
+| close          | close(3)                                                               | Setelah proses selesai, kernel menutup file descriptor untuk membebaskan resource           |
+| Nilai Return   | Return 0 atau jumlah byte                                              | System call berhasil dijalankan ditandai return 0 atau jumlah byte yang diproses            |
+| Proses         | Tidak ada fork/exec (hanya operasi I/O file)                           | Fokus pada open, read, write, close sebagai dasar manajemen file yang diamati               |
+
+### Tabel Observasi System Call (`dmesg`)
+
+| Kategori       | Observasi Log Kernel (`dmesg`)                                         | Penjelasan                                                                                  |
+|--------------- |----------------------------------------------------------------------- |--------------------------------------------------------------------------------------------|
+| Error          | "Failed to connect to bus: No such file or directory"                  | Gagal koneksi ke bus systemd, file/directory terkait layanan tidak ditemukan                |
+| Audit          | "Collecting audit messages is disabled."                               | Aktivitas audit kernel/logging keamanan dimatikan                                           |
+| Systemd Error  | "init failed to start within 10000ms"                                  | Subsystem WSL gagal menjalankan init sesuai batas waktu                                     |
+| ACPI           | "AC Adapter (online)", "battery absent"                                | Status hardware daya terdeteksi; tidak ada baterai                                          |
+| TCP Warning    | "Driver has suspect GRO implementation, TCP performance may be compromised." | Driver jaringan eth0 bermasalah, bisa berdampak pada performa TCP                          |
 
 ---
 
 ## Kesimpulan
-Jadi, kernel berperan sebagai pengendali utama agar semua perangkat keras dan program dapat berjalan bersama dengan efektif dan aman. Log kernel adalah catatan detail aktivitas kernel tersebut, berbeda dari output aplikasi yang lebih sederhana dan fokus ke kebutuhan pengguna langsung. Pemahaman ini membantu mengerti bagaimana komputer mengatur proses internal dan interaksi file secara efisien pada level sistem operasi.
+System call merupakan jembatan antara aplikasi pengguna dan kernel sistem operasi yang memungkinkan proses berjalan dengan aman dan terkontrol. Melalui system call, OS dapat melakukan verifikasi hak akses program terhadap sumber daya seperti file, perangkat keras, dan memori, sehingga meningkatkan tingkat keamanan. Mekanisme ini mencegah aplikasi dari melakukan operasi yang tidak sah atau berbahaya, serta menjaga integritas sumber daya sistem.​
 
 ---
 
@@ -129,7 +166,7 @@ Jadi, kernel berperan sebagai pengendali utama agar semua perangkat keras dan pr
 masih kurang paham tentang arti dari log dari hasil perintah satu sampai 3 soalnya di punya saya hasilnya banyak tulisan close,saya tidak tahu apa itu mengalami kesalahan atau emang seperti itu.
   
 - Bagaimana cara Anda mengatasinya?
-cara mengatasinya bertanya pada ai dan menganalisa yang saya tau saya.
+cara mengatasinya akhirnya saya pinjam device temen untuk mengerjakan.
 
 ---
 
