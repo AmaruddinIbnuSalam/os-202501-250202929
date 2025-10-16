@@ -79,7 +79,7 @@ Teori dasar yang mendasari percobaan menggunakan strace analisis log kernel dala
    ```bash
    strace ls
    ```
-2. **Eksperimen 2 – Menelusuri System Call File I/O**
+2. **Eksperimen 2 – Menelusuri System Call sFile I/O**
    Jalankan:
    ```bash
    strace -e trace=open,read,write,close cat /etc/passwd
@@ -103,27 +103,14 @@ Teori dasar yang mendasari percobaan menggunakan strace analisis log kernel dala
 ---
 
 ## Analisis
-- **Dari analisis saya tentang percobaan yang telah saya lakukakan yaitu:**
-1. Menujukan cara sistem call berfungsi sebagai media komunikasi antara kernel dan aplikasi 
-2. Menjunjukan mekanisme proses kernel memecahkan proses open, read,write, dan close.
-3. kernel menunjukan log  yang berisi tantang bagaimana kernel dan layanan sistem menangangi berbagai runtime termasuk error,operasi I/O dan Managemen memori. informasi dari log ini sangat penting untuk sistem untuk menjalankan troubleshooting dengan baik.
+Kernel adalah bagian inti dari sistem operasi yang mengelola komunikasi antara perangkat keras dan perangkat lunak komputer. Ketika sebuah program membuka file, kernel memberikan sebuah nomor identifikasi yang disebut file descriptor (seperti angka 3 dalam contoh) untuk mengakses file tersebut. Kernel kemudian bertugas membaca data dari file dan menempatkannya ke dalam memori agar program bisa menggunakannya. Setelah selesai, kernel menutup file descriptor itu sehingga sumber daya komputer bisa digunakan untuk kebutuhan lain. Proses buka, baca, dan tutup file ini diatur secara rapi oleh kernel untuk menjaga keamanan dan kestabilan sistem.
 
-- **Hubungan hasil dengan teori (fungsi kernel, system call, arsitektur OS) yaitu:**
-1. Fungsi kernel adalah sebagai inti dari sistem operasi yang mengatur semua sumber daya hardware seperti CPU, memori, dan perangkat I/O,dan kernel juga menjembatan antara I/o dengan aplikasi agar berjalan lancar dan terkoordinasi dengan baik. Dalam percobaan, kernel menjalankan tugas membuka file (/etc/passwd), mengalokasikan memori untuk membaca, menulis data ke output, dan menutup file dari proses cat. Log kernel juga mencatat aktivitas penting seperti kegagalan koneksi layanan dan operasi file system, yang merupakan contoh nyata fungsi kernel dalam mengelola perangkat dan layanan sistem.
-2. Sistem call berfungsi sebagai media komunikasi antara kernel dan aplikasi. Dalam percobaan, command strace memonitor semua system call terkait operasi file seperti open, read, write, dan close. Ini adalah cara aplikasi meminta layanan kernel, misalnya membuka file, membaca isi, atau output ke layar, yang kernel proses dengan aman dan efisien.​
-3. Linux memiliki arsitektur dimana kernel beroperasi pada mode kernel yang memiliki akses penuh ke hardware, sedangkan aplikasi berjalan di mode user. System call berfungsi sebagai penghalang keamanan agar aplikasi tidak langsung mengakses hardware,Dalam Percobaan menampilkan bagaimana data bergerak dari aplikasi ke kernel dan kembali ke output user dengan mengikuti komunikasi system call dan peran kernel dalam manajemen sumber daya.
-- **perbedaan hasil di lingkungan OS berbeda (Linux vs Windows) yaitu:**
-1. Kernel dan System Call: Linux menggunakan kernel monolitik dengan system call yang standar dan terbuka, sehingga bisa dipantau dengan tools seperti strace dan dmesg. Windows menggunakan kernel hybrid dan system call-nya berbeda, sehingga tracing dan log dilakukan dengan tools lain yang lebih kompleks.
-2. Logging dan Output: Output di Linux biasanya berupa log kernel dan system call yang detail dan berbasis teks. Di Windows, log lebih terintegrasi dengan GUI dan memakai event viewer serta tools Sysinternals, sehingga tampilannya berbeda.
-3. Lisensi dan Fleksibilitas: Linux bersifat open source sehingga pengguna bisa melihat, memodifikasi, dan mengontrol kernel dan system call. Windows adalah proprietary sehingga kontrol dan akses terbatas. 
+Berbeda dengan program biasa yang mengeluarkan output untuk pengguna, log kernel menunjukkan aktivitas internal sistem secara teknis, seperti pengelolaan hardware, kondisi driver, dan event sistem yang penting untuk memonitor kesehatan komputer. Log ini merekam semua kejadian penting di level sistem operasi yang berjalan "di balik layar" dan biasanya digunakan oleh administrator atau teknisi untuk memecahkan masalah.
 
 ---
 
 ## Kesimpulan
-sistem operasi linux dan windows memiliki perbedaan pada struktur mekanisme system call dan cara mereka mengolah sumber daya  serta proses,
-linux menggunakan kernel monolitic yang terbuka dan berbasis POSIX dengan sistem call yang bisa di trace secara rinci, sehingga memiliki fleksibilitas dan transparasi yang tinggi untuk memantau sistem dan debuggin. 
-Serta Windows memakai kernel hybrid dengan system call berbeda dan menggunakan alat monitoring yang berbeda pula, lebih terintegrasi dengan GUI.
-
+Jadi, kernel berperan sebagai pengendali utama agar semua perangkat keras dan program dapat berjalan bersama dengan efektif dan aman. Log kernel adalah catatan detail aktivitas kernel tersebut, berbeda dari output aplikasi yang lebih sederhana dan fokus ke kebutuhan pengguna langsung. Pemahaman ini membantu mengerti bagaimana komputer mengatur proses internal dan interaksi file secara efisien pada level sistem operasi.
 
 ---
 
