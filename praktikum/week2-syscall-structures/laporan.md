@@ -165,7 +165,7 @@ System call merupakan jembatan antara aplikasi pengguna dan kernel sistem operas
 masih kurang paham tentang arti dari log dari hasil perintah satu sampai 3 soalnya di punya saya hasilnya banyak tulisan close,saya tidak tahu apa itu mengalami kesalahan atau emang seperti itu.
   
 - Bagaimana cara Anda mengatasinya?
-cara mengatasinya akhirnya saya pinjam device temen untuk mengerjakan.
+cara mengatasinya akhirnya saya mencari tahu diinternet tantang arti log hasil percobaan linux 
 
 ---
 
