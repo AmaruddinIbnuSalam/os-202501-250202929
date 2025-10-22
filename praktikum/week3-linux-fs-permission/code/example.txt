@@ -1,0 +1,30 @@
+mrcley@LAPTOP-VEJOG5AI:~$ pwd
+/home/mrcley
+mrcley@LAPTOP-VEJOG5AI:~$ ls -l
+total 0
+mrcley@LAPTOP-VEJOG5AI:~$ cd /tmp
+mrcley@LAPTOP-VEJOG5AI:/tmp$ ls -a
+.
+..
+.X11-unix
+snap-private-tmp
+systemd-private-cf3192f8386d4f899322f13255083db6-systemd-logind.service-9GCl0j
+systemd-private-cf3192f8386d4f899322f13255083db6-systemd-resolved.service-1II3Pi
+systemd-private-cf3192f8386d4f899322f13255083db6-systemd-timesyncd.service-r3y4Tf
+systemd-private-cf3192f8386d4f899322f13255083db6-wsl-pro.service-hjtZq3
+mrcley@LAPTOP-VEJOG5AI:/tmp$ cat /etc/passwd | head -n 5
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+mrcley@LAPTOP-VEJOG5AI:/tmp$ echo "<AMARUDDIN IBNU SALAM><250202929>" > percobaan.txt
+mrcley@LAPTOP-VEJOG5AI:/tmp$ ls -l percobaan.txt
+-rw-r--r-- 1 mrcley mrcley 34 Oct 22 19:56 percobaan.txt
+mrcley@LAPTOP-VEJOG5AI:/tmp$ chmod 600 percobaan.txt
+mrcley@LAPTOP-VEJOG5AI:/tmp$ ls -l percobaan.txt
+-rw------- 1 mrcley mrcley 34 Oct 22 19:56 percobaan.txt
+mrcley@LAPTOP-VEJOG5AI:/tmp$ sudo chown root percobaan.txt
+[sudo] password for mrcley:
+mrcley@LAPTOP-VEJOG5AI:/tmp$ ls -l percobaan.txt
+-rw------- 1 root mrcley 34 Oct 22 19:56 percobaan.txt
