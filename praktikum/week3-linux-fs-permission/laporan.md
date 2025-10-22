@@ -1,5 +1,5 @@
 
-# Laporan Praktikum Minggu [X]
+# Laporan Praktikum Minggu 4
 Topik: Manajemen File dan Permission di Linux 
 
 ---
@@ -22,8 +22,11 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
-
+- **Ownership**: Setiap file dimiliki oleh user dan grup tertentu.
+- **Kategori Pengguna**: Permission diberikan untuk owner, group, dan others.
+- **Jenis Hak Akses**: Read (baca), Write (tulis), Execute (jalankan).
+- **Representasi**: Permission bisa dilihat dalam format simbolik (rwx) atau angka (0-7).
+- **Keamanan**: Permission mengontrol akses dan menjaga keamanan file di sistem.
 ---
 
 ## Langkah Praktikum
@@ -83,8 +86,8 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
    ```
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+<img width="1919" height="1079" alt="hasil percobaan teminal linux fs permision" src="https://github.com/user-attachments/assets/3dccd02a-ee37-4b47-aa0d-c481f9a8d308" />
+
 
 ---
 
@@ -111,11 +114,36 @@ Sertakan screenshot hasil percobaan atau diagram:
   
 - Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
 - Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+## Tugas
+
+1.Tabel Observasi
+| Perintah                         | Fungsi                                              | Hasil / Output                                                      |
+|---------------------------------|----------------------------------------------------|-------------------------------------------------------------------|
+| `pwd`                           | Menampilkan direktori kerja saat ini                | /home/mrcley                                                      |
+| `ls -l`                        | Menampilkan isi direktori dengan format panjang     | total 0 (tidak ada file di /home/mrcley)                         |
+| `cd /tmp`                      | Pindah direktori aktif ke /tmp                       | -                                                                 |
+| `ls -a`                        | Menampilkan semua file termasuk tersembunyi di /tmp | . .. .X11-unix snap-private-tmp systemd-private-...               |
+| `cat /etc/passwd \| head -n 5` | Menampilkan 5 baris pertama dari file /etc/passwd   | root:x:0:0:root:/root:/bin/bash dan 4 baris pengguna berikutnya  |
+| `echo "<AMARUDDIN IBNU SALAM><250202929>" > percobaan.txt` | Membuat file percobaan.txt dengan isi teks       | -                                                                 |
+| `ls -l percobaan.txt`          | Menampilkan hak akses dan info file percobaan.txt   | -rw-r--r-- 1 mrcley mrcley 34 Oct 22 19:56 percobaan.txt         |
+| `chmod 600 percobaan.txt`      | Mengubah hak akses file menjadi hanya pemilik baca/tulis | -rw------- 1 mrcley mrcley 34 Oct 22 19:56 percobaan.txt          |
+| `sudo chown root percobaan.txt`| Mengubah pemilik file menjadi root                   | -rw------- 1 root mrcley 34 Oct 22 19:56 percobaan.txt            |
+| `ls -l percobaan.txt`          | Menampilkan status akhir file percobaan.txt          | -rw------- 1 root mrcley 34 Oct 22 19:56 percobaan.txt            |
+
+Jelaskan fungsi tiap perintah dan arti kolom permission (rwxr-xr--)
+1. rwx (Owner/Pemilik): pemilik file bisa membaca (r), menulis (w), dan menjalankan (x) file.
+2. r-x (Group/Grup): anggota grup bisa membaca (r) dan mengeksekusi (x) file, tapi tidak bisa menulis.
+3. r-- (Others/Pengguna lainnya): pengguna lain hanya bisa membaca file saja tanpa boleh menulis atau mengeksekusi.
+   
+Analisis peran chmod dan chown dalam keamanan sistem Linux.   
+kedua perintah ini membangun mekanisme kontrol akses yang kuat, mendukung prinsip keamanan seperti prinsip least privilege (hak akses minimum) dan menjaga integritas serta kerahasiaan data di sistem Linux.
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Setiap file di Linux memiliki pemilik (owner) dan grup yang mengatur siapa yang boleh mengakses file tersebut. Permission adalah aturan yang menentukan apa yang bisa dilakukan oleh pemilik, grup, dan pengguna lain terhadap file, seperti membaca, menulis, dan mengeksekusi. Sistem permission ini penting untuk menjaga keamanan dan mencegah akses ilegal ke file atau data di dalam sistem. Perintah chmod digunakan untuk mengatur hak akses, sedangkan chown mengatur pemilik file.
+
+Intinya, permission dan ownership bekerja sama untuk mengelola akses dan menjaga keamanan file di Linux.
 
 ---
 
@@ -123,9 +151,9 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 1. Apa fungsi dari perintah `chmod`? 
    **Jawaban:**  fungsi chmod adalah untuk mengubah hak asses directory untuk meningkatkan keamanan atau mengatur akses pengguna
 2. Apa arti dari kode permission `rwxr-xr--`? 
-   **Jawaban:**  `rwx` untuk ouner
+   **Jawaban:**  jika kode permission file `rwxr-xr--` pemilik file mendapat kontrol prenuh, anggota grup hanya bisa membaca dan menjalankan file dan pengguna lain hanya bisa membaca file tersebut.
 3. Jelaskan perbedaan antara `chown` dan `chmod`. 
-   **Jawaban:**  
+   **Jawaban:**  chown berguna untuk mengubah kepemilikan file, sedangkan chmod untuk mengatur hak akses apa saja yang bisa di lakukan oleh pemilik dan pengguna lain terhadap file yang mereka punya. keduanya memiliki fungsi yang penting dalam pengelolahan keamanan dan kontrol akses file di system linux, chmod dan chown biasanya hanya bisa di jalankan oleh root/ pengguna dengan hak istimewa.
 
 ---
 
