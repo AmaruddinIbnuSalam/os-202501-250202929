@@ -82,18 +82,6 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
    git push origin main
    ```
 
----
-
-## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
-```
-
----
-
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
 ![Screenshot hasil](screenshots/example.png)
