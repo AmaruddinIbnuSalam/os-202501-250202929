@@ -5,9 +5,9 @@ Topik: Manajemen File dan Permission di Linux
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : AMARUDDIN IBNU SALAM  
+- **NIM**   : 250202929
+- **Kelas** : 1IKRA
 
 ---
 
@@ -121,9 +121,9 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ## Quiz
 1. Apa fungsi dari perintah `chmod`? 
-   **Jawaban:**  
+   **Jawaban:**  fungsi chmod adalah untuk mengubah hak asses directory untuk meningkatkan keamanan atau mengatur akses pengguna
 2. Apa arti dari kode permission `rwxr-xr--`? 
-   **Jawaban:**  
+   **Jawaban:**  `rwx` untuk ouner
 3. Jelaskan perbedaan antara `chown` dan `chmod`. 
    **Jawaban:**  
 
