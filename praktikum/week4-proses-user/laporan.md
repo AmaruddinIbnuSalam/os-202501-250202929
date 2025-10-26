@@ -110,15 +110,14 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 ## Kesimpulan
 Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
----
-
+---  
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Apa fungsi dari proses `init` atau `systemd` dalam sistem Linux?  
+   **Jawaban:**  init berfungsi untuk menjalankan starup secara berurutan layanan sistem operasi dan Fungsi systemd meliputi menginisialisasi layanan secara paralel untuk mempercepat proses booting, mengelola dependensi layanan secara otomatis, serta menyediakan kontrol dan monitoring layanan yang lebih efisien. 
+2. Apa perbedaan antara `kill` dan `killall`?  
+   **Jawaban:**  Code `Kill` hanya digunakan untuk terminate satu proses yang sedang berjalan sedangkan `killall` digunakan untuk terminate semua proses yang sedang berjalan tanpa kecuali.
+3. Mengapa user `root` memiliki hak istimewa di sistem Linux?  
+   **Jawaban:**  karena dibutuhkan untuk menjalankan operasi yang mempengaruhi seluruh sistem 
 
 ---
 
@@ -132,5 +131,3 @@ Tuliskan secara singkat:
 **Credit:**  
 _Template laporan praktikum Sistem Operasi (SO-202501) – Universitas Putra Bangsa_
 
-
-[def]: <hasil percobaan.png>
