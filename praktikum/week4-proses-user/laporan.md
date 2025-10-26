@@ -1,20 +1,23 @@
 
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+# Laporan Praktikum Minggu 4
+Topik: Manajemen Proses dan User di Linux
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : AMARUDDIN IBNU SALAM  
+- **NIM**   : 250202929  
+- **Kelas** : 1IKRA
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+etelah menyelesaikan tugas ini, mahasiswa mampu:
+1. Menjelaskan konsep proses dan user dalam sistem operasi Linux.  
+2. Menampilkan daftar proses yang sedang berjalan dan statusnya.  
+3. Menggunakan perintah untuk membuat dan mengelola user.  
+4. Menghentikan atau mengontrol proses tertentu menggunakan PID.  
+5. Menjelaskan kaitan antara manajemen user dan keamanan sistem.
 
 ---
 
@@ -24,26 +27,76 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 ---
 
 ## Langkah Praktikum
-1. Langkah-langkah yang dilakukan.  
-2. Perintah yang dijalankan.  
-3. File dan kode yang dibuat.  
-4. Commit message yang digunakan.
+1. **Setup Environment**
+   - Gunakan Linux (Ubuntu/WSL).  
+   - Pastikan Anda sudah login sebagai user non-root.  
+   - Siapkan folder kerja:
+     ```
+     praktikum/week4-proses-user/
+     ```
 
----
+2. **Eksperimen 1 – Identitas User**
+   Jalankan perintah berikut:
+   ```bash
+   whoami
+   id
+   groups
+   ```
+   
+   - Jelaskan setiap output dan fungsinya.  
+   - Buat user baru (jika memiliki izin sudo):
+     ```bash
+     sudo adduser praktikan
+     sudo passwd praktikan
+     ```
+   - Uji login ke user baru.
 
-## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
-```
+3. **Eksperimen 2 – Monitoring Proses**
+   Jalankan:
+   ```bash
+   ps aux | head -10
+   top -n 1
+   ```
+   - Jelaskan kolom penting seperti PID, USER, %CPU, %MEM, COMMAND.  
+   - Simpan tangkapan layar `top` ke:
+     ```
+     praktikum/week4-proses-user/screenshots/top.png
+     ```
+
+4. **Eksperimen 3 – Kontrol Proses**
+   - Jalankan program latar belakang:
+     ```bash
+     sleep 1000 &
+     ps aux | grep sleep
+     ```
+   - Catat PID proses `sleep`.  
+   - Hentikan proses:
+     ```bash
+     kill <PID>
+     ```
+   - Pastikan proses telah berhenti dengan `ps aux | grep sleep`.
+
+5. **Eksperimen 4 – Analisis Hierarki Proses**
+   Jalankan:
+   ```bash
+   pstree -p | head -20
+   ```
+   - Amati hierarki proses dan identifikasi proses induk (`init`/`systemd`).  
+   - Catat hasilnya dalam laporan.
+
+6. **Commit & Push**
+   ```bash
+   git add .
+   git commit -m "Minggu 4 - Manajemen Proses & User"
+   git push origin main
+   ```
 
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+ ![Hasil screenshot](<screenshots/hasil percobaan.png>)
+
+![Hasil screenshot](<screenshots\Hasil percobaan 2.png>)
 
 ---
 
@@ -78,3 +131,6 @@ Tuliskan secara singkat:
 
 **Credit:**  
 _Template laporan praktikum Sistem Operasi (SO-202501) – Universitas Putra Bangsa_
+
+
+[def]: <hasil percobaan.png>
