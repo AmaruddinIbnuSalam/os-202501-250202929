@@ -94,9 +94,9 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 ---
 
 ## Hasil Eksekusi
- ![Hasil screenshot](<screenshots/hasil percobaan.png>)
+![Hasil screenshot](<screenshots/hasil percobaan.png>)
+<img width="1919" height="1079" alt="Hasil percobaan ke-2" src="https://github.com/user-attachments/assets/363c855b-c0e5-458f-a92a-2405cef9735b" />
 
-![Hasil screenshot](<screenshots\Hasil percobaan 2.png>)
 
 ---
 
