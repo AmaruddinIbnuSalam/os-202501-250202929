@@ -30,7 +30,7 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
    | Proses | Burst Time | Arrival Time |
    |:--:|:--:|:--:|
    | P1 | 6 | 0 |
-   | P2 | 8 | 1 |
+   | P2 | 8 | 1 
    | P3 | 7 | 2 |
    | P4 | 3 | 3 |
 

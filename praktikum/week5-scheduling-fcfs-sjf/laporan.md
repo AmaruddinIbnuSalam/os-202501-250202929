@@ -1,25 +1,28 @@
 
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+# Laporan Praktikum Minggu 5
+Topik: Penjadwalan CPU – FCFS dan SJF 
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : AMARUDDIN IBNU SALAM  
+- **NIM**   : 250202929  
+- **Kelas** : 1IKRA
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Setelah menyelesaikan tugas ini, mahasiswa mampu:
+1. Menghitung *waiting time* dan *turnaround time* untuk algoritma FCFS dan SJF.  
+2. Menyajikan hasil perhitungan dalam tabel yang rapi dan mudah dibaca.  
+3. Membandingkan performa FCFS dan SJF berdasarkan hasil analisis.  
+4. Menjelaskan kelebihan dan kekurangan masing-masing algoritma.  
+5. Menyimpulkan kapan algoritma FCFS atau SJF lebih sesuai digunakan.  
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+Tuliskan ringkasan teori (3–5 poin) yang mendasari FCFS dan SJF
 
 ---
 
@@ -32,25 +35,105 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 ---
 
 ## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
+1. **Siapkan Data Proses**
+   Gunakan tabel proses berikut sebagai contoh (boleh dimodifikasi dengan data baru):
+   | Proses | Burst Time | Arrival Time |
+   |:--:|:--:|:--:|
+   | P1 | 6 | 0 |
+   | P2 | 8 | 1 
+   | P3 | 7 | 2 |
+   | P4 | 3 | 3 |
+
+2. **Eksperimen 1 – FCFS (First Come First Served)**
+- Urut berdasarkan Arrival Time: P1 (0) → P2 (1) → P3 (2) → P4 (3)  
+- Berikut Perhitungan untuk tiap proses:
 ```
+P1: start = 0, finish = 0 + 6 = 6
+WT = start − arrival = 0 − 0 = 0
+TAT = WT + burst = 0 + 6 = 6
+
+P2: start = finish(P1) = 6, finish = 6 + 8 = 14
+WT = 6 − 1 = 5
+TAT = 5 + 8 = 13
+
+P3: start = finish(P2) = 14, finish = 14 + 7 = 21
+WT = 14 − 2 = 12
+TAT = 12 + 7 = 19
+
+P4: start = finish(P3) = 21, finish = 21 + 3 = 24
+WT = 21 − 3 = 18
+TAT = 18 + 3 = 21
+```
+   - Rata-rata Waiting Time dan Turnaround Time. 
+   ```
+      - Avg Waiting Time (FCFS) = (0 + 5 + 12 + 18) / 4 = 8.75ms
+      - Avg Turnaround Time (FCFS) = (6 + 13 + 19 + 21) / 4 = 14.75ms
+   ```
+   - Buat Gantt Chart sederhana:  
+     ```
+     | P1 | P2 | P3 | P4 |
+     0    6    14   21   24
+     ```
+
+3. **Eksperimen 2 – SJF (Shortest Job First)**
+   - Urutan proses berdasarkan *Burst Time* terpendek (dengan memperhatikan waktu kedatangan).
+
+   P4 (0) → P1 (1) → P3 (2) → P2 (3)  
+
+   - Perhitungan WT dan TAT
+
+| Proses | Burst Time | Arrival Time | Star Time | Finis Time |WT | TAT|
+   |:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+   | P4 | 3 | 3 | 3 | 6 | 0 | 3 |
+   | P1 | 6 | 0 | 6  | 12  | 6  |  12 |
+   | P3 | 7 | 2 | 12 | 19 | 10 | 17 |
+   | P2 | 8 | 1 | 19  | 27 | 18  | 26 |
+   rata-rata Waiting Time (WT) = 8,5
+
+   rata-rata Turnaround Time (TAT) = 14,5
+
+Buat Gantt Chart sederhana: 
+    
+   
+     | P1 | P2 | P3 | P4 |
+     0    6    12   19   27
+   
+
+
+   - Perbandigan hasil FCFS dan SJF pada tabel berikut:
+
+     | Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
+     |------------|------------------|----------------------|------------|-------------|
+     | FCFS |8.75ms|14.75 ms| Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
+     | SJF |8.5 ms|14.5 ms| Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang |
+
+
+
+
+
+
+
+4. **Eksperimen 3 – Visualisasi Spreadsheet (Opsional)**
+   - Gunakan Excel/Google Sheets untuk membuat perhitungan otomatis:
+     - Kolom: Arrival, Burst, Start, Waiting, Turnaround, Finish.
+     - Gunakan formula dasar penjumlahan/subtraksi.
+   - Screenshot hasil perhitungan dan simpan di:
+     ```
+     praktikum/week5-scheduling-fcfs-sjf/screenshots/
+     ```
 
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+Perhitungan FCFS dan SJF Menggunakan Excel.
+![Screenshot hasil](<screenshots/Screenshot 2025-11-05 175937.png>)
 
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+- Bandingkan hasil rata-rata WT dan TAT antara FCFS & SJF.  
+- Jelaskan kondisi kapan SJF lebih unggul dari FCFS dan sebaliknya.  
+- Tambahkan kesimpulan singkat di akhir laporan.
 
 ---
 
@@ -59,13 +142,39 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ---
 
+
+### Tugas
+1. Hitung *waiting time* dan *turnaround time* dari minimal 2 skenario FCFS dan SJF.  
+2. Sajikan hasil perhitungan dalam tabel perbandingan (FCFS vs SJF).  
+3. Analisis kelebihan dan kelemahan tiap algoritma. 
+
+### Jawaban
+1. FCFS (First Come First Served)
+Urutan eksekusi: P1 → P2 → P3 → P4
+
+Waiting Time (WT):
+
+P1 = 0 (langsung jalan)
+P2 = 7 - 2 = 5 ms (mulai setelah P1 selesai)
+P3 = 11 - 4 = 7 ms
+P4 = 12 - 5 = 7 ms
+
+Turnaround Time (TAT) = WT + Burst Time (BT)
+P1 = 0 + 7 = 7 ms
+P2 = 5 + 4 = 9 ms
+P3 = 7 + 1 = 8 ms
+P4 = 7 + 4 = 11 ms
+Rata-rata waiting time = (0+5+7+7)/4 = 4.75 ms
+Rata-rata turnaround time = (7+9+8+11)/4 = 8.75 ms
+
+
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Apa perbedaan utama antara FCFS dan SJF?    
+   **Jawaban:**  FCFS (First Come, First Served) dan SJF (Shortest Job First) adalah cara penjadwalan prosesnya. FCFS menjadwalkan proses berdasarkan urutan kedatangan, artinya proses yang datang lebih dulu akan dilayani lebih dulu tanpa interupsi. Sebaliknya, SJF memprioritaskan proses dengan waktu eksekusi (burst time) terpendek, sehingga proses dengan durasi paling singkat akan dilayani terlebih dahulu, yang dapat meminimalkan rata-rata waktu tunggu. FCFS bersifat non-preemptive dan sederhana, namun bisa menyebabkan waktu tunggu lama terutama jika proses awal memerlukan waktu eksekusi lama (efek konvoi). SJF juga biasanya non-preemptive, tetapi memiliki varian preemptive yang disebut Shortest Remaining Time First (SRTF) dan dikenal sebagai algoritma yang lebih optimal karena mengurangi rata-rata waktu tunggu dan meningkatkan efisiensi sistem.
+2. Mengapa SJF dapat menghasilkan rata-rata waktu tunggu minimum?  
+   **Jawaban:** SJF (Shortest Job First) bisa buat waktu tunggu rata-rata menjadi minimal karena proses yang paling cepat selesai akan dilayani duluan. Jadi, proses yang lama akan menunggu lebih singkat, sehingga keseluruhan waktu tunggu semua proses jadi lebih kecil secara rata-rata. Ini membantu sistem berjalan lebih efisien dan proses selesai cepat. 
+3. Apa kelemahan SJF jika diterapkan pada sistem interaktif?    
+   **Jawaban:**  Kelemahan SJF kalau dipakai di sistem interaktif adalah sulit untuk menebak berapa lama sebuah proses akan berjalan. Selain itu, proses yang butuh waktu lama bisa terus menunggu kalau selalu ada proses baru yang lebih cepat. Jadi, proses lama bisa sering tertunda dan sistem jadi kurang adil dan responsif untuk pengguna.
 
 ---
 
