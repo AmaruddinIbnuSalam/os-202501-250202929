@@ -195,7 +195,7 @@ Perhitungan FCFS dan SJF Menggunakan Excel.
 
 3. Analisis kelebihan dan kelemahan tiap algoritma. 
 
-| Algoritma | ✅ Kelebihan | ❌ Kelemahan |
+| Algoritma |  Kelebihan |  Kelemahan |
 | :--------- | :----------- | :----------- |
 | **FCFS (First Come, First Served)** | - Sederhana dan mudah diimplementasikan (menggunakan struktur queue FIFO).<br>- Adil secara urutan kedatangan — proses dijalankan sesuai waktu datang.<br>- Tidak menyebabkan starvation, semua proses pasti dijalankan. | - Rata-rata waktu tunggu bisa tinggi (*convoy effect*), terutama jika proses panjang datang lebih dulu.<br>- Tidak efisien untuk sistem interaktif atau multitasking karena proses panjang dapat memblokir lainnya.<br>- Tidak ada prioritas berdasarkan kebutuhan waktu eksekusi. |
 | **SJF (Shortest Job First)** | - Memberikan waktu tunggu rata-rata minimum (*optimal secara teori*).<br>- Efisien dalam sistem batch, meningkatkan throughput.<br>- Mengurangi waktu turnaround total dibanding FCFS. | - Sulit diterapkan secara praktis karena memerlukan estimasi waktu CPU burst yang akurat.<br>- Dapat menyebabkan starvation pada proses panjang jika proses pendek terus datang.<br>- Kurang cocok untuk sistem interaktif atau real-time karena tidak memperhatikan keadilan. |
@@ -238,8 +238,8 @@ Rata-rata turnaround time = (7+9+8+11)/4 = 8.75 ms
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini? yang menantang minggu ini adalah 
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini? minggu ini, lebih rumit dari minggu sebellumnya, saya butuh beberapa hari untuk menyelesaikannya
+- Bagaimana cara Anda mengatasinya? cara saya mengatasi kerumitan ini, adalah dengan research dari beberapa sumber untuk dapat menyesaikan tugas ini 
 
 ---
 
