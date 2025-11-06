@@ -238,8 +238,8 @@ Rata-rata turnaround time = (7+9+8+11)/4 = 8.75 ms
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini? minggu ini, lebih rumit dari minggu sebellumnya, saya butuh beberapa hari untuk menyelesaikannya
-- Bagaimana cara Anda mengatasinya? cara saya mengatasi kerumitan ini, adalah dengan research dari beberapa sumber untuk dapat menyesaikan tugas ini 
+- Apa bagian yang paling menantang minggu ini? minggu ini, lebih rumit dari minggu sebellumnya, saya butuh beberapa hari untuk menyelesaikannya.
+- Bagaimana cara Anda mengatasinya? cara saya mengatasi kerumitan ini, adalah dengan research dari beberapa sumber untuk dapat menyesaikan tugas ini. 
 
 ---
 
