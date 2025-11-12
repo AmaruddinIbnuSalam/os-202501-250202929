@@ -21,7 +21,13 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+- Round Robin (RR) menggunakan metode time-sharing dengan membagi waktu CPU secara adil kepada tiap proses berdasarkan time quantum yang sama. Setiap proses berjalan selama jatah waktu tersebut secara bergilir, lalu dilanjutkan proses berikutnya.
+
+- Round Robin (RR) menjamin tidak ada proses yang menunggu lebih lama, karena quantum bersifat bebas starvation, tetapi performa quantum dipengaruhi ukuran quantum (terlalu kecil banyak switching, jika terlalu besar seperti FCFS).
+
+- Priority Scheduling memilih proses dengan prioritas tertinggi untuk dijalankan lebih dulu. Bisa preemptive (proses bisa digantikan jika ada prioritas lebih tinggi) atau non-preemptive(proses  jika ada prioritas lebih tinggi pun tidak dapat digantikan ).
+
+- Sesama prioritas sama, bisa dipakai FCFS sebagai tie-breaker. Algoritma ini cocok untuk proses penting, namun berisiko terjadi starvation pada prioritas rendah.
 
 ---
 
@@ -67,7 +73,7 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 
 3. **Eksperimen 2 – Priority Scheduling (Non-Preemptive)**
    - Urutkan proses berdasarkan nilai prioritas (angka kecil = prioritas tinggi). 
-   
+
 | Proses | Burst Time | Arrival Time | Priority |
 | :---: | :---: | :---: | :---: | 
 | P2 |  3 | 0 | 1 |
@@ -124,14 +130,18 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ---
 
-## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+## D. Tugas & Quiz
+### Tugas
+1. Hitung *waiting time* dan *turnaround time* untuk algoritma RR dan Priority.  
+2. Sajikan hasil perhitungan dan Gantt Chart dalam `laporan.md`.  
+3. Bandingkan performa dan jelaskan pengaruh *time quantum* serta prioritas.  
+4. Simpan semua bukti (tabel, grafik, atau gambar) ke folder `screenshots/`.  
 
+### Quiz
+Tuliskan jawaban di bagian **Quiz** pada laporan:
+1. Apa perbedaan utama antara Round Robin dan Priority Scheduling?  
+2. Apa pengaruh besar/kecilnya *time quantum* terhadap performa sistem?  
+3. Mengapa algoritma Priority dapat menyebabkan *starvation*?
 ---
 
 ## Refleksi Diri
