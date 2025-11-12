@@ -37,16 +37,44 @@ Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
 
 2. **Eksperimen 1 – Round Robin (RR)**
    - Gunakan *time quantum (q)* = 3.  
-   - Hitung *waiting time* dan *turnaround time* untuk tiap proses.  
+   - Hitung *waiting time* dan *turnaround time* untuk tiap proses.
+
+| Proses | Completion Time | Burst Time | Arrival Time | Turnaround Time | Waiting Time |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| P1 | 14 | 5 | 0 | 14 | 10 |
+| P2 | 6 | 3 | 1 | 5 | 4 |
+| P3 | 22 | 8 | 2 | 20 | 2 |
+| P4 | 20 | 6 | 3 | 17 | 20 |
+
    - Simulasikan eksekusi menggunakan Gantt Chart (manual atau spreadsheet).  
      ```
-     | P1 | P2 | P3 | P4 | P1 | P3 | ...
-     0    3    6    9   12   15   18  ...
+     | P1 | P2 | P3 | P4 | P1 | P3 | P4 | P3 |
+     0    3    6    9   12   14   17   20   22
      ```
    - Catat sisa *burst time* tiap putaran.
 
+| Proses | Waktu | Burst Time | Quantum | Sisa waktu |
+| :---: | :---: | :---: | :---: | :---: |
+| P1 | 0 | 5 | 3 | 2 |
+| P2 | 3 | 3 | 3 | 0 |
+| P3 | 6 | 8 | 3 | 5 |
+| P4 | 9 | 6 | 3 | 3 |
+| P1 | 12 | 2 | 2 | 0 |
+| P3 | 14 | 5 | 3 | 2 |
+| P4 | 17 | 3 | 3 | 0 |
+| P3 | 20 | 2 | 2 | 0 |
+
+
 3. **Eksperimen 2 – Priority Scheduling (Non-Preemptive)**
-   - Urutkan proses berdasarkan nilai prioritas (angka kecil = prioritas tinggi).  
+   - Urutkan proses berdasarkan nilai prioritas (angka kecil = prioritas tinggi). 
+   
+| Proses | Burst Time | Arrival Time | Priority |
+| :---: | :---: | :---: | :---: | 
+| P2 |  3 | 0 | 1 |
+| P1 |  5 | 1 | 2 |
+| P4 |  6 | 2 | 3 |
+| P3 |  8 | 3 | 4 |
+
    - Lakukan perhitungan manual untuk:
      ```
      WT[i] = waktu mulai eksekusi - Arrival[i]
