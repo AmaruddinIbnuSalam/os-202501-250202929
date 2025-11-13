@@ -45,12 +45,8 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
    - Gunakan *time quantum (q)* = 3.  
    - Hitung *waiting time* dan *turnaround time* untuk tiap proses.
 
-| Proses | Completion Time | Burst Time | Arrival Time | Turnaround Time | Waiting Time |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| P1 | 14 | 5 | 0 | 14 | 10 |
-| P2 | 6 | 3 | 1 | 5 | 4 |
-| P3 | 22 | 8 | 2 | 20 | 2 |
-| P4 | 20 | 6 | 3 | 17 | 20 |
+
+
 
    - Simulasikan eksekusi menggunakan Gantt Chart (manual atau spreadsheet).  
      ```
@@ -58,6 +54,13 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
      0    3    6    9   12   14   17   20   22
      ```
    - Catat sisa *burst time* tiap putaran.
+| Proses | Completion Time | Burst Time | Arrival Time | Turnaround Time | Waiting Time |
+| :----: | :-------------: | :--------: | :----------: | :-------------: | :----------: |
+| P1     | 14              | 5          | 0            | 14              | 9            |
+| P2     | 6               | 3          | 1            | 5               | 2            |
+| P3     | 22              | 8          | 2            | 20              | 12           |
+| P4     | 20              | 6          | 3            | 17              | 11           |
+
 
 | Proses | Waktu | Burst Time | Quantum | Sisa waktu |
 | :---: | :---: | :---: | :---: | :---: |
@@ -74,12 +77,15 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 3. **Eksperimen 2 – Priority Scheduling (Non-Preemptive)**
    - Urutkan proses berdasarkan nilai prioritas (angka kecil = prioritas tinggi). 
 
-| Proses | Burst Time | Arrival Time | Priority |
-| :---: | :---: | :---: | :---: | 
-| P2 |  3 | 0 | 1 |
-| P1 |  5 | 1 | 2 |
-| P4 |  6 | 2 | 3 |
-| P3 |  8 | 3 | 4 |
+| Proses | Completion Time | Burst Time | Arrival Time | Turnaround Time | Waiting Time |
+| :----: | :-------------: | :--------: | :----------: | :-------------: | :----------: |
+| P1     | 14              | 5          | 0            | 14              | 9            |
+| P2     | 6               | 3          | 1            | 5               | 2            |
+| P3     | 22              | 8          | 2            | 20              | 12           |
+| P4     | 20              | 6          | 3            | 17              | 11           |
+
+Rata-rata WT = 5,25
+Rata-rata TAT = 10,75
 
    - Lakukan perhitungan manual untuk:
      ```
@@ -90,7 +96,26 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 
 4. **Eksperimen 3 – Analisis Variasi Time Quantum (Opsional)**
    - Ubah *quantum* menjadi 2 dan 5.  
-   - Amati perubahan nilai rata-rata *waiting time* dan *turnaround time*.  
+   - Amati perubahan nilai rata-rata *waiting time* dan *turnaround time*.
+  
+Quantum 2
+|Proses|	CT | AT |BT | TAT | WT |
+|:----:|:--:|:--:|:-:|:---:|:--:|
+|  P1  |	18 |  0 | 5 |	18 |  13|
+|  P2  |	13 |	1 | 3 |	12 |	9 |
+|  P3  |	24 |	2 | 8 |	22 |	14|
+|  P4  |	22 |  3 | 6 |	19 |	13|
+|Rata-rata  |    |   ||17.75|12.25|
+
+Quantum 5
+|Proses|	CT | AT |BT | TAT | WT |
+|:----:|:--:|:--:|:-:|:---:|:--:|
+|  P1  |	5  |  0 | 5 |	5  |  0 |
+|  P2  |	8  |	1 | 3 |	7  |	4 |
+|  P3  |	21 |	2 | 8 |	19 |	11|
+|  P4  |	22 |  3 | 6 |	19 |	13|
+|Rata-rata  |    |  || 12.5|  7 |
+
    - Buat tabel perbandingan efek *quantum*.
 
 5. **Eksperimen 4 – Dokumentasi**
@@ -102,8 +127,8 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 
      | Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
      |------------|------------------|----------------------|------------|-------------|
-     | RR | ... | ... | Adil terhadap semua proses | Tidak efisien jika quantum tidak tepat |
-     | Priority | ... | ... | Efisien untuk proses penting | Potensi *starvation* pada prioritas rendah |
+     | RR | 8,5 | 14 | Adil terhadap semua proses | Tidak efisien jika quantum tidak tepat |
+     | Priority | 4,25 | 10,75 | Efisien untuk proses penting | Potensi *starvation* pada prioritas rendah |
 
 6. **Commit & Push**
    ```bash
