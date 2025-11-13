@@ -54,6 +54,7 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
      0    3    6    9   12   14   17   20   22
      ```
    - Catat sisa *burst time* tiap putaran.
+   - 
 | Proses | Completion Time | Burst Time | Arrival Time | Turnaround Time | Waiting Time |
 | :----: | :-------------: | :--------: | :----------: | :-------------: | :----------: |
 | P1     | 14              | 5          | 0            | 14              | 9            |
@@ -77,7 +78,12 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 3. **Eksperimen 2 – Priority Scheduling (Non-Preemptive)**
    - Urutkan proses berdasarkan nilai prioritas (angka kecil = prioritas tinggi). 
 
-
+| Proses | Completion Time | Burst Time | Arrival Time | Turnaround Time | Waiting Time |
+| :----: | :-------------: | :--------: | :----------: | :-------------: | :----------: |
+| P1     | 14              | 5          | 0            | 14              | 9            |
+| P2     | 6               | 3          | 1            | 5               | 2            |
+| P3     | 22              | 8          | 2            | 20              | 12           |
+| P4     | 20              | 6          | 3            | 17              | 11           |
 Rata-rata WT = 5,25
 Rata-rata TAT = 10,75
 
@@ -138,14 +144,24 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+
+- RR adil tapi tergantung quantum
+Round Robin memberikan waktu CPU bergantian ke semua proses. Jika quantum terlalu kecil, sering ganti proses jadi lambat. Kalau terlalu besar, mirip antrian biasa.
+- Priority lebih cepat proses penting
+Proses dengan prioritas tinggi jalan dulu, bikin proses penting cepat selesai. Tapi proses prioritas rendah bisa kelamaan nunggu (starvation).
+- Quantum pengaruh besar di RR
+Quantum kecil bikin proses sering berhenti-berhenti, jadi lama. Quantum besar bikin proses cepat selesai tapi bisa kurang responsif.
+- Priority lebih efisien, RR lebih adil
+Priority lebih cepat secara rata-rata, cocok buat tugas penting. RR lebih cocok buat sistem yang butuh keadilan semua proses.
+- Kesimpulan: pilih sesuai kebutuhan
+Pakai RR kalau ingin semua proses dapat giliran. Pakai Priority kalau ada proses yang harus didahulukan, tapi perlu cara supaya proses kecil tidak kelamaan menunggu.
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+- Round Robin cocok untuk sistem yang butuh keadilan karena semua proses mendapat giliran CPU secara bergantian, tapi efisiensinya bergantung pada pemilihan time quantum.
+
+- Priority Scheduling lebih efisien untuk memproses tugas penting lebih cepat, namun berisiko membuat proses dengan prioritas rendah menunggu terlalu lama (starvation).
 
 ---
 
