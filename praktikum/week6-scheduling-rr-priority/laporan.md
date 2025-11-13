@@ -77,12 +77,6 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 3. **Eksperimen 2 – Priority Scheduling (Non-Preemptive)**
    - Urutkan proses berdasarkan nilai prioritas (angka kecil = prioritas tinggi). 
 
-| Proses | Completion Time | Burst Time | Arrival Time | Turnaround Time | Waiting Time |
-| :----: | :-------------: | :--------: | :----------: | :-------------: | :----------: |
-| P1     | 14              | 5          | 0            | 14              | 9            |
-| P2     | 6               | 3          | 1            | 5               | 2            |
-| P3     | 22              | 8          | 2            | 20              | 12           |
-| P4     | 20              | 6          | 3            | 17              | 11           |
 
 Rata-rata WT = 5,25
 Rata-rata TAT = 10,75
