@@ -45,7 +45,16 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
    - Gunakan *time quantum (q)* = 3.  
    - Hitung *waiting time* dan *turnaround time* untuk tiap proses.
 
+| Proses | Completion Time | Brust Time | Arrival Time | Turnaround Time | Waiting Time |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| P1 | 14 | 5 | 0 | 14 | 9 |
+| P2 | 6 | 3 | 1 | 5 | 2 |
+| P3 | 22 | 8 | 2 | 20 | 12 |
+| P4 | 20 | 6 | 3 | 17 | 11 |
 
+Rata rata TAT:14 
+
+Rata rata WT :8,5
 
 
    - Simulasikan eksekusi menggunakan Gantt Chart (manual atau spreadsheet).  
@@ -54,21 +63,13 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
      0    3    6    9   12   14   17   20   22
      ```
    - Catat sisa *burst time* tiap putaran.
-   - 
-| Proses | Completion Time | Burst Time | Arrival Time | Turnaround Time | Waiting Time |
-| :----: | :-------------: | :--------: | :----------: | :-------------: | :----------: |
-| P1     | 14              | 5          | 0            | 14              | 9            |
-| P2     | 6               | 3          | 1            | 5               | 2            |
-| P3     | 22              | 8          | 2            | 20              | 12           |
-| P4     | 20              | 6          | 3            | 17              | 11           |
-
 
 | Proses | Waktu | Burst Time | Quantum | Sisa waktu |
 | :---: | :---: | :---: | :---: | :---: |
 | P1 | 0 | 5 | 3 | 2 |
 | P2 | 3 | 3 | 3 | 0 |
-| P3 | 6 | 8 | 3 | 5 |
-| P4 | 9 | 6 | 3 | 3 |
+| P3 | 6  | 8 | 3 | 5 |
+| P4 | 9  | 6 | 3 | 3 |
 | P1 | 12 | 2 | 2 | 0 |
 | P3 | 14 | 5 | 3 | 2 |
 | P4 | 17 | 3 | 3 | 0 |
@@ -84,7 +85,9 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 | P2     | 6               | 3          | 1            | 5               | 2            |
 | P3     | 22              | 8          | 2            | 20              | 12           |
 | P4     | 20              | 6          | 3            | 17              | 11           |
+
 Rata-rata WT = 5,25
+
 Rata-rata TAT = 10,75
 
    - Lakukan perhitungan manual untuk:
@@ -138,9 +141,14 @@ Quantum 5
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
-
+### Simulasi rata-rata jika nilai quantum=3
+![Hasil Screenshot](<screenshots/Simulasi rata-rata jika nilai quantum=3.png>)
+### Sisa burst time tiap putaran
+![alt text](<screenshots/Sisa burst time tiap putaran.png>)
+### Urutan proses berdasarkan priority (angka kecil = prioritas tinggi)
+![alt text](<screenshots/Urutan proses berdasarkan priority.png>)
+### Simulasi jika nilai quantum 2 dan 5
+![alt text](<screenshots/Simulasi jika nilai quantum 2 dan 5.png>)
 ---
 
 ## Analisis
@@ -172,12 +180,55 @@ Pakai RR kalau ingin semua proses dapat giliran. Pakai Priority kalau ada proses
 3. Bandingkan performa dan jelaskan pengaruh *time quantum* serta prioritas.  
 4. Simpan semua bukti (tabel, grafik, atau gambar) ke folder `screenshots/`.  
 
+### jawaban
+## 1. Round robin
+| Proses | Completion Time | Brust Time | Arrival Time | Turnaround Time | Waiting Time |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| P1 | 14 | 5 | 0 | 14 | 9 |
+| P2 | 6 | 3 | 1 | 5 | 2 |
+| P3 | 22 | 8 | 2 | 20 | 12 |
+| P4 | 20 | 6 | 3 | 17 | 11 |
+|   Rata rata |    |   |   |  14|8,5|
+
+## 2. Priority
+| Proses | Completion Time | Burst Time | Arrival Time | Turnaround Time | Waiting Time |
+| :----: | :-------------: | :--------: | :----------: | :-------------: | :----------: |
+| P1     | 14              | 5          | 0            | 14              | 9            |
+| P2     | 6               | 3          | 1            | 5               | 2            |
+| P3     | 22              | 8          | 2            | 20              | 12           |
+| P4     | 20              | 6          | 3            | 17              | 11           |
+|   Rata rata |    |   |   |  10,75|5,25|
+
+## 3. poin-poin penting tentang pengaruh time quantum dan prioritas
+- Time quantum terlalu kecil menyebabkan overhead tinggi akibat seringnya context switching.
+
+- Time quantum terlalu besar membuat respons proses menjadi lambat dan mirip FCFS.
+
+- Quantum yang optimal menyeimbangkan efisiensi dan respons sistem.
+
+- Round Robin klasik tidak menggunakan prioritas, sehingga semua proses mendapat perlakuan setara.
+
+- Jika prioritas diterapkan, proses prioritas tinggi bisa mendapatkan akses lebih dulu atau waktu lebih banyak, tapi ini menurunkan fairness asli RR.
+
+- Penentuan time quantum yang tepat sangat krusial untuk performa penjadwalan.
+
+- Prioritas bisa meningkatkan performa pada kebutuhan khusus, namun harus dikelola agar tidak menyebabkan starvation proses lain.                                                                             
+
 ### Quiz
 Tuliskan jawaban di bagian **Quiz** pada laporan:
 1. Apa perbedaan utama antara Round Robin dan Priority Scheduling?  
 2. Apa pengaruh besar/kecilnya *time quantum* terhadap performa sistem?  
 3. Mengapa algoritma Priority dapat menyebabkan *starvation*?
 ---
+
+## 1. Perbedaan utama antara Round Robin dan Priority Scheduling
+Round Robin (RR) menggunakan metode time-sharing dengan membagi waktu CPU secara adil kepada tiap proses berdasarkan time quantum yang sama, sedangkan Priority Scheduling memilih proses dengan prioritas tertinggi untuk dijalankan lebih dulu.
+
+## 2. Pengaruh besar/kecilnya *time quantum* terhadap performa sistem
+jika Time quantum terlalu kecil menyebabkan overhead tinggi akibat seringnya context switching, dan Jika Time quantum terlalu besar membuat respons proses menjadi lambat dan mirip FCFS.
+
+## 2. Mengapa algoritma Priority dapat menyebabkan *starvation*
+Algoritma Priority dapat menyebabkan starvation karena proses dengan prioritas tinggi selalu didahulukan untuk dieksekusi, sehingga proses dengan prioritas rendah bisa terus menunggu tanpa pernah mendapat giliran menggunakan CPU
 
 ## Refleksi Diri
 Tuliskan secara singkat:
