@@ -144,11 +144,11 @@ Quantum 5
 ### Simulasi rata-rata jika nilai quantum=3
 ![Hasil Screenshot](<screenshots/Simulasi rata-rata jika nilai quantum=3.png>)
 ### Sisa burst time tiap putaran
-![alt text](<screenshots/Sisa burst time tiap putaran.png>)
+![Hasil Screenshot](<screenshots/Sisa burst time tiap putaran.png>)
 ### Urutan proses berdasarkan priority (angka kecil = prioritas tinggi)
-![alt text](<screenshots/Urutan proses berdasarkan priority.png>)
+![Hasil Screenshot](<screenshots/Urutan proses berdasarkan priority.png>)
 ### Simulasi jika nilai quantum 2 dan 5
-![alt text](<screenshots/Simulasi jika nilai quantum 2 dan 5.png>)
+![Hasil Screenshot](<screenshots/Simulasi jika nilai quantum 2 dan 5.png>)
 ---
 
 ## Analisis
@@ -232,8 +232,8 @@ Algoritma Priority dapat menyebabkan starvation karena proses dengan prioritas t
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini? yang menantang yaitu saat melakukan perhitungan diSpreadsheet.
+- Bagaimana cara Anda mengatasinya? meminta banntuan pada beberapa aplikasi ai.
 
 ---
 
