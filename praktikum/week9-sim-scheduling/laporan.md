@@ -20,13 +20,16 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 ---
 Struktur folder 
 ```
-praktikum/week9-sim-scheduling/
-├─ code/
-│  ├─ #Algoritma FCFS .py
-│  └─ dataset.csv
-├─ screenshots/
-│  └─ hasil_simulasi.png
-└─ laporan.md
+week9-sim-scheduling
+ ┣ code
+ ┃ ┣ dist
+ ┃ ┃ ┗ Simulasi_Algoritma_FCFS.exe
+ ┃ ┣ Dataset.csv
+ ┃ ┣ Simulasi_Algoritma_FCFS.py
+ ┃ ┗ Simulasi_Algoritma_FCFS.spec
+ ┣ screenshots
+ ┃ ┗ Hasil simulasi .png
+ ┗ laporan.md
 ```
 
 ## Dataset Uji
@@ -43,7 +46,7 @@ dataset proses yang dingunakan sebagai berikut:
 ## Implementasi program
 Program ini di buat menggunakan bahasa pyhton dan berjalan melalui terminal.Program Dapat menghitung *waiting time* dan *turnaround time* berdasarkan Algoritma yang di pakai adalah FCFS 
  Alur program:
- 1. Menginput jumlah proses, arrival time ,brust time 
+ 1. Memasukan path Dataset.csv 
  2. Program mengimplementasikan algoritma FCFS 
  3. Hasil nya akan berupa tabel dan rata-rata *waiting time* dan Turnaround time*
 
