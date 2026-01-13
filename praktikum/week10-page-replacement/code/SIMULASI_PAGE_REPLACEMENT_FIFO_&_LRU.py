@@ -15,11 +15,13 @@ def read_refrence_string(file_path):
 def algo_fifo (refrence_string, frames) :
     memory =[]
     page_fault = 0
+    page_hit = 0
     pointer = 0
 
     print ("=== FIFO Page Replacement Algorithm ===")
     for page in refrence_string:
         if page in memory :
+            page_hit += 1
             status = "HIT"
 
         else:
@@ -70,11 +72,16 @@ print("\njumlah frame:",frames)
 print("reference string:",reference_string)
 
 fifo_faults = algo_fifo(reference_string, frames)
+fifo_hit = len(reference_string) - fifo_faults
 lru_faults = lru(reference_string, frames)
+lru_hit = len(reference_string) - lru_faults
 
 print("\n=== HASIL AKHIR ===")
 print(f"Total Page Fault FIFO: {fifo_faults}")
+print(f"Total Page Hit FIFO: {fifo_hit}")
 print(f"Total Page Fault LRU : {lru_faults}")
+print(f"Total Page Hit LRU : {lru_hit}")
+
     
 input("\n Tekan enter untuk keluar ")
 

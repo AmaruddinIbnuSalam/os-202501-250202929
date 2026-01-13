@@ -58,11 +58,14 @@ Strukture folder
 ```
 week10-page-replacement
  ┣ code
+ ┃ ┣ dist
+ ┃ ┃ ┗ SIMULASI_PAGE_REPLACEMENT_FIFO_&_LRU.exe
  ┃ ┣ example.txt
  ┃ ┣ reference_string.txt
- ┃ ┗ SIMULASI PAGE REPLACEMENT FIFO & LRU.py
+ ┃ ┣ SIMULASI_PAGE_REPLACEMENT_FIFO_&_LRU.py
+ ┃ ┗ SIMULASI_PAGE_REPLACEMENT_FIFO_&_LRU.spec
  ┣ screenshots
- ┃ ┗ example.png
+ ┃ ┗ Hasal_Pengujian_Dataset_yang_diuji.png
  ┗ laporan.md
 ```
 ---
