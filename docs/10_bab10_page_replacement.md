@@ -4,7 +4,8 @@ Topik: Manajemen Memori – Page Replacement (FIFO & LRU)
 ---
 
 ## A. Deskripsi Singkat
-Pada praktikum minggu ini, mahasiswa akan mempelajari **manajemen memori virtual**, khususnya mekanisme **page replacement**.  
+Pada praktikum minggu ini, mahasiswa akan mempelajari **HJ
+
 Fokus utama praktikum adalah memahami bagaimana sistem operasi mengganti halaman (*page*) di memori utama ketika terjadi *page fault*, serta membandingkan performa algoritma **FIFO (First-In First-Out)** dan **LRU (Least Recently Used)**.
 
 Mahasiswa akan mengimplementasikan **program simulasi page replacement**, menjalankan dataset uji, dan menyajikan hasil dalam bentuk tabel atau grafik.
