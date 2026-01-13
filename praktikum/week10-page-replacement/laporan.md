@@ -116,8 +116,10 @@ Karena LRU memanfaatkan prinsip locality of reference, sehingga halaman yang ser
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini?   
+yang paling menantang saat membuat code algortima page replacement, pada saat membuat nya saya banyak menemukan code error yang membuat saya harus menganalisa code yang saya buat bisa berjalan dengan baik, walaupun masih banyak kekurangan 
+- Bagaimana cara Anda mengatasinya?
+cara mengatasinya saya dengan meneliti lagi dari awal kesalahan codenya dengan di bantu dengan ai untuk mencari cara menatasinya 
 
 ---
 
