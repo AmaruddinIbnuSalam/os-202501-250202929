@@ -41,14 +41,21 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 
 ## Kode / Perintah
 Perintah utama yang digunakan dalam praktikum:
+- Membuka CMD pada folder code/projeck-docker
+Lalu menjalankan command ini untuk build image docker
+```bash 
+docker build -t week13-resource-limit 
+```
+- Setelah telah image docker terbuat jalankan command secara non limit 
 
 ```bash
-
-docker build -t week13-resource-limit ./code
-
 docker run --rm week13-resource-limit
+```
+- Command ini untuk menjalankan program dengan limitasi cpu 0,5 dan memori hanyua 256mb 
+```bash
 
 docker run --rm --cpus="0.5" --memory="256m" week13-resource-limit
+```
 
 docker stats
 
@@ -57,9 +64,10 @@ docker stats
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
-
+screenshot hasil percobaan docker
+![alt text](screenshots/SS1.jpeg)
+![alt text](screenshots/SS2.jpeg)
+![alt text](screenshots/SS3.jpeg)
 ---
 
 ## Analisis

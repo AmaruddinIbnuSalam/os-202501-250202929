@@ -1,1 +1,0 @@
-print("Hello from Docker + VS Code!")
