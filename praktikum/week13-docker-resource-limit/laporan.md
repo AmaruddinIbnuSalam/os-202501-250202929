@@ -41,39 +41,48 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 
 ## Kode / Perintah
 Perintah utama yang digunakan dalam praktikum:
-- Membuka CMD pada folder code/projeck-docker
-Lalu menjalankan command ini untuk build image docker
+
+- Pertama buka teminal untuk Monitoring resource 
+
+``` bash
+docker stats
+
+```
+- Lalu buka teminal ke 2  pada folder code/projeck-docker
+dan menjalankan command ini untuk build image docker
 ```bash 
 docker build -t week13-resource-limit 
 ```
-- Setelah telah image docker terbuat jalankan command secara non limit 
+- Setelah telah image docker terbuat lalu jalankan docker dengan non limit 
 
 ```bash
 docker run --rm week13-resource-limit
 ```
-- Command ini untuk menjalankan program dengan limitasi cpu 0,5 dan memori hanyua 256mb 
+- Untuk menjalankan docker dengan limit dengan cpu 0.5 dan memori 256mb 
 ```bash
 
 docker run --rm --cpus="0.5" --memory="256m" week13-resource-limit
 ```
+- 
 
-docker stats
-
-```
 
 ---
 
 ## Hasil Eksekusi
 screenshot hasil percobaan docker
-![alt text](screenshots/SS1.jpeg)
-![alt text](screenshots/SS2.jpeg)
-![alt text](screenshots/SS3.jpeg)
----
+![docker stats](screenshots/docker_stats.png)
+![ss stres test cpu non limit](<screenshots/ssstrestestcpunonlimit.png>)
+pada screenshot hasil percobaan ini menampilkan jika docker di jalankan pada tanpa limit/non limit cpu used mencapai 100% dan proses dapat di selesaikan dengan 44 detik setelah itu lanjut menjalankan memori test dengan nilai uji sampai 500mb dan alokasi pemakaian nya 10mb per detik, dapat dijalankan tanpa ada eror dan kehabisan resource  memori yang menandakan docker berhasil menjalankan stress test cpu dan testing memori dengan baik.
+pada screenshot hasil percobaan ini menampilkan docker menjalankan memori test dengan nilai uji sampai 500mb dan alokasi pemakaian nya 10mb per detik, dapat dijalankan tanpa ada eror dan kehabisan resource  memori 
+![ss test cpu dengan limit](screenshots/sstestmemoridenganlimit.png)
+![ss test memori dengan limit](<screenshots/sstestcpudenganlimit.png>)
+pada screenshot hasil percobaan ini menampilkan jika docker dijalankan dengan cpu yang di limit 0.5, yang terjadi cpu used yang di gunakan hanya 50% dan proses diselesaikan dengan waktu yang lebih lama yaitu 85 detik, docker menjalankan test memori dengan limit 256mb, yang terjadi adalah alokasi berhenti pada saat resource  memori menyentuh 256mb 
 
 ## Analisis
 Analisis saya pada container yang di jalankan tanpa batasan resource,program 
 dapat menggunakan cpu dan memori tanpa batasan yang menyebabkan kecepatan eksekusi program berjalan dengan lebih cepat dan  penggunaan ram meningkat terus. Namun ketika container di jalan kan dengan limit CPU 0,5 ( setengan dari inti cpu host ) dan memori 256MB, karena konfigurasi ini memori dibatasi dan proses eksekusi program berjalan sangat lambat.
 Jika program  mencoba menggunakan resource memori melebihi batas container akan mengalami eror atau di hentikan oleh sistem. ini menunjukan bahwa docker secara efektif menerapkan Resource Limit menggunakan control gruoup.
+
 
 ## Kesimpulan
 1. Docker memungkinkan melakukan pembatasan resource CPU dan Memori pada container secara efektif

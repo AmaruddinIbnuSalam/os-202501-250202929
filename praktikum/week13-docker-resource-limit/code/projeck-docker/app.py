@@ -2,9 +2,6 @@ import time
 import math
 import sys
 
-# =============================
-# CEK LIMIT DARI DOCKER (CGROUP v2)
-# =============================
 
 def get_cpu_limit():
     try:
@@ -28,56 +25,46 @@ def get_memory_limit():
         return None
 
 
-# =============================
-# CPU TEST (BERBASIS KECEPATAN)
-# =============================
 
 def cpu_test():
-    duration = 2           # detik
+    total_work = 200_000_000   # jumlah kerja tetap
     bar_len = 20
 
     cpu_limit = get_cpu_limit()
 
     print("=== SIMULASI CPU TEST ===")
-    print(f"Durasi Test       : {duration} detik")
+    print("Model Test        : Fixed Workload")
+    print("Total Work        :", total_work)
     print("Limit CPU Docker  :", "NON-LIMIT" if cpu_limit is None else cpu_limit, "\n")
 
     start_wall = time.time()
     start_cpu = time.process_time()
 
-    while True:
-        elapsed = time.time() - start_wall
-        if elapsed >= duration:
-            break
+    for i in range(1, total_work + 1):
+        math.sqrt(i)
 
-        # Beban CPU (kecepatan eksekusi)
-        for i in range(1, 300_000):
-            math.sqrt(i)
+        if i % (total_work // bar_len) == 0:
+            progress = i / total_work
+            filled = int(bar_len * progress)
+            bar = "█" * filled + "░" * (bar_len - filled)
 
-        progress = min(elapsed / duration, 1)
-        filled = int(bar_len * progress)
-        bar = "█" * filled + "░" * (bar_len - filled)
-
-        sys.stdout.write(
-            f"\rProgress: |{bar}| {progress*100:6.2f}% Waktu: {elapsed:4.2f}s"
-        )
-        sys.stdout.flush()
+            elapsed = time.time() - start_wall
+            sys.stdout.write(
+                f"\rProgress: |{bar}| {progress*100:6.2f}% Waktu: {elapsed:6.2f}s"
+            )
+            sys.stdout.flush()
 
     cpu_used = time.process_time() - start_cpu
-    cpu_usage = (cpu_used / duration) * 100
+    wall_time = time.time() - start_wall
 
     bar = "█" * bar_len
-    print(f"\rProgress: |{bar}| 100.00% Waktu: {duration:.2f}s")
+    print(f"\rProgress: |{bar}| 100.00%")
 
     print("\n=== HASIL CPU TEST ===")
-    print(f"CPU Time Digunakan : {cpu_used:.2f} detik")
-    print(f"Estimasi CPU Usage : {cpu_usage:.2f}%")
+    print(f"Wall Time         : {wall_time:.2f} detik")
+    print(f"CPU Time Digunakan: {cpu_used:.2f} detik")
     print("Simulasi CPU selesai.\n")
 
-
-# =============================
-# MEMORY TEST (BERTAHAP & SELESAI)
-# =============================
 
 def memory_test():
     step_mb = 10
@@ -85,7 +72,7 @@ def memory_test():
     bar_len = 30
 
     limit = get_memory_limit()
-    test_max = 500  # batas uji jika NON-LIMIT
+    test_max = 500 
 
     used_mb = 0
     allocated = []
@@ -124,9 +111,6 @@ def memory_test():
     print("Simulasi Memori selesai.\n")
 
 
-# =============================
-# MAIN
-# =============================
 
 cpu_test()
 memory_test()
