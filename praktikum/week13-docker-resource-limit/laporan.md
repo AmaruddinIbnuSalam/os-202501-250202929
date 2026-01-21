@@ -38,8 +38,23 @@ Setelah menyelesaikan tugas ini, mahasiswa mampu:
 8. Melakukan commit dan push hasil praktikum ke repository GitHub.
 
 ---
+Strukture folder
+week13-docker-resource-limit
+ ┣ code
+ ┃ ┗ projeck-docker
+ ┃ ┃ ┣ app.py
+ ┃ ┃ ┣ Dockerfile
+ ┃ ┃ ┗ requirements.txt
+ ┣ screenshots
+ ┃ ┣ docker_stats.png
+ ┃ ┣ ssstrestestcpunonlimit.png
+ ┃ ┣ sstestcpudenganlimit.png
+ ┃ ┗ sstestmemoridenganlimit.png
+ ┗ laporan.md
 
 ## Kode / Perintah
+
+```
 Perintah utama yang digunakan dalam praktikum:
 
 - Pertama buka teminal untuk Monitoring resource 
