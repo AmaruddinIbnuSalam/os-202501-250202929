@@ -1,6 +1,5 @@
 
 from CPU import menu_SJF
-
 def main():
     while True:
         print("\n" + "╔══════════════════════════════╗")
