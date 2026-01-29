@@ -10,10 +10,18 @@ def menu_SJF():
         (3, "laporan.md", 3, 3),
         (4, "musik.mp3", 5, 5)
     ]
+    print("\n" + "="*40)
+    print("FILE YANG AKAN DIDOWNLOAD ".center(40))
+    print("="*40 + "\n")
 
+    print("NAMA FILE                      | Arrival Time (AT) | Burst Time (BT) |")
+    print("------------------------------ | ----------------: | --------------: |")
+    print("hasil-percobaan.jpg            |                 0 |               2 |")
+    print("Persentasi-week15.mp4          |                 1 |               8 |")
+    print("laporan.md                     |                 2 |               3 |")
+    print("musik.mp3                      |                 3 |               5 |")    
     # SJF (Shortest Job First) → Urutkan berdasarkan durasi (indeks ke-2)
     downloads.sort(key=lambda x: x[2])
-
     print("\n" + "="*40)
     print(" DOWNLOAD MANAGER (SJF) ".center(40))
     print("="*40 + "\n")
@@ -34,3 +42,4 @@ def menu_SJF():
     print("-" * 40)
     print("Semua download selesai.")
     print("-" * 40)
+

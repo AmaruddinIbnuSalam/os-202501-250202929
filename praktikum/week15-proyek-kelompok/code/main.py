@@ -1,5 +1,7 @@
-
 from CPU import menu_SJF
+from LRU import browser_scenario
+from DEADLOCKMODUL import maindead
+
 def main():
     while True:
         print("\n" + "╔══════════════════════════════╗")
@@ -7,18 +9,23 @@ def main():
         print("╠══════════════════════════════╣")
         print("║ 1. CPU Scheduling (SJF)      ║")
         print("║ 2. Page Replacement (LRU)    ║")
-        print("║ 3. Keluar                    ║")
+        print("║ 3. Deadlock Detection        ║")
+        print("║ 4. Keluar                    ║")
         print("╚══════════════════════════════╝")
         
-        pilihan = input("Pilih menu (1/2/3): ")
+        pilihan = input("Pilih menu (1/2/3/4): ")
         if pilihan =='1':
             menu_SJF()
+        elif pilihan =='2':
+            browser_scenario()
         elif pilihan == '3':
+            maindead()
+        elif pilihan == '4':
             print("keluar dari program ")
             break
         else:
             print("error input silakan coba lagi")
-            main()
+            
 
 
 if __name__ == "__main__":
@@ -29,6 +36,3 @@ if __name__ == "__main__":
         pass
     except KeyboardInterrupt:
         print("\nProgram dihentikan paksa.")
-
-            
-
